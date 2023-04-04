@@ -1,8 +1,5 @@
 import React from "react";
 import { useState } from "react";
-import Container from "react-bootstrap/Container";
-import { Row } from "react-bootstrap";
-import { Col } from "react-bootstrap";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 // import Swal from 'sweetalert2'
 
@@ -95,35 +92,37 @@ function TextForm(props) {
         </div>
 
         {/* buttons */}
-        <Container>
-          <Row>
-            <Col>
-              {/* button upper case */}
-              <button className={`btn btn-${props.colorMode}`} onClick={UpperCase}>
-                Upper Case
-              </button>
-              &nbsp;
-              {/* button lower case */}
-              <button className={`btn btn-${props.colorMode}`} onClick={LowerCase}>
-                Lower Case
-              </button>
-              &nbsp;
-              {/* button copy to clipboard */}
-              <button className={`btn btn-${props.colorMode}`} id="copyBtn">
-                <CopyToClipboard text={text} onCopy={TextCopy}>
-                  <span>Copy to Clipboard</span>
-                </CopyToClipboard>
-              </button>
-            </Col>
+        <div className="container d-flex justify-content-between">
+          <div className="row align-items-start">
+          <div className="col">
+          {/* button upper case */}
+          <button className={`btn btn-${props.colorMode} mb-2`} onClick={UpperCase}>
+            Upper Case
+          </button>
+          &nbsp;
+          {/* button lower case */}
+          <button className={`btn btn-${props.colorMode} mb-2`} onClick={LowerCase}>
+            Lower Case
+          </button>
+          &nbsp;
+          {/* button copy to clipboard */}
+          <button className={`btn btn-${props.colorMode} mb-2`} id="copyBtn">
+            <CopyToClipboard text={text} onCopy={TextCopy}>
+              <span>Copy to Clipboard</span>
+            </CopyToClipboard>
+          </button>
+            </div>
+          </div>
 
-            <Col xs lg="1">
-              {/* button clear */}
-              <button className={`btn btn-${props.colorMode}`} onClick={ClearText}>
-                Clear
-              </button>
-            </Col>
-          </Row>
-        </Container>
+            <div className="row align-items-end">
+              <div className="col">
+                {/* button clear */}
+                <button className={`btn btn-${props.colorMode} mb-2`} onClick={ClearText}>
+                  Clear
+                </button>
+              </div>
+            </div>
+        </div>
       </div>
 
       {/* Text Information */}
